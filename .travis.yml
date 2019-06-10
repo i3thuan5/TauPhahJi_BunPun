@@ -1,0 +1,19 @@
+sudo: true
+dist: trusty
+language: python
+python:
+- '3.5'
+env:
+- TOX_ENV=tan1guan5
+- TOX_ENV=flake8
+- TOX_ENV=docker
+services:
+- docker
+branches:
+  only:
+  - master
+  - "/\\d+\\.\\d+\\.\\d+/"
+install:
+- pip install tox
+script:
+- tox -e $TOX_ENV
