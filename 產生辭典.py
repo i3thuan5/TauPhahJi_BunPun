@@ -21,10 +21,7 @@ def main():
     su = set()
     for tsua in stdin.readlines():
         for 詞物件 in 拆文分析器.分詞句物件(tsua.rstrip()).網出詞物件():
-            for 字物件 in 詞物件.篩出字物件():
-                if not 教典.有這个字無(字物件) and not 標點.有這个字無(字物件):
-                    break
-            else:
+            if 用字會使無(詞物件):
                 su.add(詞物件.看分詞())
     print('\n'.join(sorted(su)), file=stdout)
 
