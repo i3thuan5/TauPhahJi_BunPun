@@ -15,4 +15,4 @@ COPY 產生辭典.py ./
 RUN python 產生辭典.py < ku.txt | \
   grep -v '^..*的｜' | \
   grep -v '^予-' | \
-    > su.txt
+  cat > su.txt
