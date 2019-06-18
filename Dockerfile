@@ -12,4 +12,5 @@ RUN python manage.py 產生語句
 COPY 產生語言模型.py app/management/commands/
 RUN python manage.py 產生語言模型
 COPY 產生辭典.py ./
-RUN python 產生辭典.py < ku.txt > su.txt
+RUN python 產生辭典.py < ku.txt | \
+  grep -v '^..*的｜' > su.txt
