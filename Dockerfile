@@ -18,4 +18,5 @@ RUN cat su-tshoophue.txt | \
   grep -v '^予-' | \
   grep -v '就-是' | \
   grep -v '\-無｜' | \
+  grep -v 無法度匯入標點 | \
   cat > su.txt
