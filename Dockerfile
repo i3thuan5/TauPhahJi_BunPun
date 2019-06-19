@@ -1,4 +1,6 @@
-FROM i3thuan5/taigi_bunpun
+ARG BUNPUN=i3thuan5/taigi_bunpun
+
+FROM ${BUNPUN}
 
 RUN python manage.py startapp app
 RUN mkdir -p app/management/commands/
