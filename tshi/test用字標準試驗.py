@@ -17,6 +17,11 @@ class 用字標準試驗(TestCase):
         self.羅 = ','
         self.結果 = True
 
+    def test_違法攏全型標點(self):
+        self.漢 = '，'
+        self.羅 = '，'
+        self.結果 = False
+
     def test_羅馬字(self):
         self.漢 = 'uán-na'
         self.羅 = 'uán-na'

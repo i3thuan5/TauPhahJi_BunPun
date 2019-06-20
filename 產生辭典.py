@@ -11,7 +11,11 @@ def 用字會使無(詞物件):
             continue
         if 標點.有這个字無(字物件):
             continue
-        if 字物件.型 == 字物件.音 and 字物件.音標敢著(臺灣閩南語羅馬字拼音):
+        if (
+            字物件.型 == 字物件.音
+            and not 字物件.敢是標點符號()
+            and 字物件.音標敢著(臺灣閩南語羅馬字拼音)
+        ):
             continue
         return False
     return True
