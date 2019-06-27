@@ -15,10 +15,12 @@ COPY 產生語言模型.py app/management/commands/
 RUN python manage.py 產生語言模型
 COPY 產生辭典.py ./
 RUN python 產生辭典.py < ku.txt > su-tshoophue.txt
+COPY bua̋i-liân.txt ./
+RUN cat bua̋i-liân.txt | sed 's/./&-/g' | sed 's/-$//g' > bua̋i-han.txt
 RUN cat su-tshoophue.txt | \
   grep -v '^..*的｜' | \
   grep -v '^予-' | \
-  grep -v '就-是' | \
   grep -v '\-無｜' | \
   grep -v 無法度匯入標點 | \
+  grep -v -f bua̋i-han.txt | \
   cat > su.txt
