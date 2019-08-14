@@ -1,6 +1,6 @@
 ARG BUNPUN=i3thuan5/taigi_bunpun
 
-FROM ${BUNPUN}
+FROM ${BUNPUN} AS kiatko
 
 RUN python manage.py startapp app
 RUN mkdir -p app/management/commands/
@@ -24,3 +24,11 @@ RUN cat su-tshoophue.txt | \
   grep -v 無法度匯入標點 | \
   grep -v -f bua̋i-han.txt | \
   cat > su.txt
+
+FROM i3thuan5/hok8-bu7
+COPY --from=kiatko \
+  /usr/local/hok8-bu7/語言模型資料夾 \
+  /usr/local/hok8-bu7/su.txt \
+  /usr/local/hok8-bu7/ku.txt \
+  /usr/local/hok8-bu7/
+
