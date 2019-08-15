@@ -27,7 +27,7 @@ RUN cat su-tshoophue.txt | \
 
 FROM i3thuan5/hok8-bu7
 COPY --from=kiatko \
-  /usr/local/hok8-bu7/語言模型資料夾 \
+  /usr/local/hok8-bu7/語言模型資料夾/語言模型.lm \
   /usr/local/hok8-bu7/su.txt \
   /usr/local/hok8-bu7/ku.txt \
   /usr/local/hok8-bu7/
